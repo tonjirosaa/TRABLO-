@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%- include("partials/header") %>
+
+    <div class="container">
+
+        <h1><%= post.title %></h1>
+        <p><%= post.content %></p>
+        <a href="/">Back To All Post</a>
+        
+    </div>
+        <form action="/delete" method="post" style="display: inline;">
+        <button class="danger"
+        onclick="return confirm('Are you sure you want to delete this post?');"
+         type="submit">Delete</button>
+        <input type="hidden" name="id" value="<%= post.id %>">
+    </form>
+
+    <a href="/edit/<%= post.id %>" style="display: inline;">Edit Post</a>
+
+    <%- include("partials/footer") %>
+
+
+</body>
+</html>
